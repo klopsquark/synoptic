@@ -18,7 +18,7 @@ namespace Synoptic
 
             foreach (MethodInfo method in methods)
             {
-                var attribute = Attribute.GetCustomAttribute(method, typeof(TAttribute), false) as TAttribute;
+                var attribute = Attribute.GetCustomAttribute(method, typeof(TAttribute), true) as TAttribute;
                 if(attribute != null)
                     yield return method;
             }

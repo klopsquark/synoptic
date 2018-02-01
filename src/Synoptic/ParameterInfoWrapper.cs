@@ -11,15 +11,30 @@ namespace Synoptic
             Name = parameter.Name;
             Type = parameter.ParameterType;
 
-            var attributes = parameter.GetCustomAttributes(typeof(CommandParameterAttribute), true);
-            if (attributes.Length > 0)
-            {
-                var commandParameter = (CommandParameterAttribute)attributes.First();
-                Prototype = commandParameter.Prototype;
+            // Get the Class type to access its metadata.
+            var clsType = parameter.Member.DeclaringType;
+            // Get the type information for the method.
+            var mInfo = clsType.GetMethod(parameter.Member.Name);
 
-                Description = Description.GetNewIfValid(commandParameter.Description);
-                DefaultValue = commandParameter.DefaultValue;
-                IsRequired = commandParameter.IsRequired;
+            if (mInfo != null)
+            {
+                // Get the parameter information.
+                var pInfo = mInfo.GetParameters();
+
+                if (pInfo != null)
+                {
+                    var attributes = Attribute.GetCustomAttributes(pInfo[0], typeof(CommandParameterAttribute), true);
+
+                    if (attributes.Length > 0)
+                    {
+                        var commandParameter = (CommandParameterAttribute)attributes.First();
+                        Prototype = commandParameter.Prototype;
+
+                        Description = Description.GetNewIfValid(commandParameter.Description);
+                        DefaultValue = commandParameter.DefaultValue;
+                        IsRequired = commandParameter.IsRequired;
+                    }
+                }
             }
 
             IsValueRequiredWhenOptionIsPresent = parameter.ParameterType != typeof(bool);

@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandActionFinderInheritanceTests.cs" />
     <Compile Include="CommandActionFinderTests.cs" />
     <Compile Include="CommandFinderTests.cs" />
     <Compile Include="ActionSelectorTests.cs" />

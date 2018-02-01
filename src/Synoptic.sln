@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synoptic", "Synoptic\Synoptic.csproj", "{9B88A638-99DE-4A8C-80DD-6434812E27B7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synoptic.Tests", "Synoptic.Tests\Synoptic.Tests.csproj", "{7AD1859A-8B31-443A-BCA2-C9B3556C623B}"
@@ -74,5 +76,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E4526B4C-E86B-42D5-B67B-6E3F16F6B45B}
 	EndGlobalSection
 EndGlobal
